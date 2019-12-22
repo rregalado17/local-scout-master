@@ -1,0 +1,20 @@
+<%= form_tag tours_path do %>
+    <label>Tour Title:</label><br>
+    <input type="text" id="tour_title" name="tour[title]"><br>
+
+    <label>Tour Destination:</label><br>
+    <input type="text" id="tour_destination" name="tour[tour.destination]"><br>
+
+    <label>Price:</label><br>
+    <input type="text" id="tour_title" name="tour[title]"><br>
+
+    <label>Duration:</label><br>
+    <input type="text" id="tour_title" name="tour[title]"><br>
+
+    <label>Tour description:</label><br>
+    <textarea id="tour_description" name="tour[description]"></textarea><br>
+
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="submit" value="Submit Tour">
+    
+<% end %>
