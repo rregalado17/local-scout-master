@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-resources :tours, only: [:index, :new, :create]
+resources :tours, only: [:index, :show, :new, :create, :edit]
+
+patch 'tours/:id', to: 'tours#update'
 
 end

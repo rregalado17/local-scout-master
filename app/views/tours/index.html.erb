@@ -1,1 +1,4 @@
-<h1>Tours available for #destinations<h1/>
+<h1>Tours available for <h1/>
+<ul><% @tours.each do |tour| %>
+    <div><%= tour.title %></div>
+  <% end %> </ul>
