@@ -1,19 +1,17 @@
 <%= form_tag tours_path do %>
-    <label>Tour Title:</label><br>
-    <%= text_field_tag :'tour[title]' %><br>
+  
+    Tour Title: <br> <%= text_field_tag :'tour[title]', @tour.title %><br>
 
-
-    <label>Tour Destination:</label><br>
-    <%= text_field_tag :'tour[destination]' %><br>
+    Destination: <br> <%= text_field_tag :'tour[destination]', @tour.destination %><br>
 
     <label>Price:</label><br>
-    <%= number_field_tag :'tour[price]', nil, min: 1%><br>
+    <%= number_field_tag :'tour[price]', nil, min: 1, @tour.price %><br>
 
     <label>Duration:</label><br>
-    <%= number_field_tag :'tour[duration]', nil, in: 1...13 %><br>
+    <%= number_field_tag :'tour[duration]', nil, in: 1...13, @tour.duration %><br>
 
     <label>Tour Description:</label><br>
-    <%= text_area_tag :'tour[description]' %><br>
+    <%= text_area_tag :'tour[description]', @tour.description, @tour.description  %><br>
 
     <%= submit_tag "Submit Tour" %> 
 

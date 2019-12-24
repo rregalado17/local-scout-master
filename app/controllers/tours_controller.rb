@@ -14,8 +14,12 @@ class ToursController < ApplicationController
 
     def create 
         @tour = Tour.new(tour_params)
-        @tour.save
-        redirect_to tour_path(@tour)
+        if @tour.valid?
+            @tour.save
+            redirect_to tour_path(@tour)
+        else
+            render :new
+        end
     end
 
     def edit 
@@ -29,7 +33,8 @@ class ToursController < ApplicationController
     end
 
     def destroy
-
+        Tour.find(params[:id]).destroy 
+        redirect_to tours_url
     end
 
     private 
