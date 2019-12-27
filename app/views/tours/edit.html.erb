@@ -1,9 +1,11 @@
-<%= form_for(@tour)do |f| %>
+<%= form_for(@tour) do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br>
 
-    <%= f.label 'Tour Destination:' %><br>
-    <%= f.text_field :destination %><br>
+    <div class="field">
+    <%= f.label :destination_id, 'Tour Destination:' %><br>
+    <%= f.collection_radio_buttons :destination_id, @destinations || [], :id, :city %>
+    </div>
 
     <%= f.label 'Price:' %><br>
     <%= f.number_field :price%><br>
@@ -15,5 +17,4 @@
     <%= f.text_area :description %><br>
 
     <%= f.submit %> 
-
 <% end %>

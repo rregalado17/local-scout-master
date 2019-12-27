@@ -1,18 +1,33 @@
-<%= form_tag tours_path do %>
+
+<h1>New Tour</h1>
+
+<%= form_for(@tour) do |f| %>
+  <div class="field">
+    <%= f.label :title, 'Tour Title:' %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, 'Tour Description:' %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destination_id, 'Tour Destination:' %><br>
+    <%= f.collection_select :destination_id, Destination.order(:city), :id, :city, include_blank: true %>
+  </div>
   
-    Tour Title: <br> <%= text_field_tag :'tour[title]', @tour.title %><br>
+  <div class="field">
+        <%= f.label :price, 'Tour Price:' %><br>
+        <%= f.number_field :price %>
+  </div>
 
-    Destination: <br> <%= text_field_tag :'tour[destination]', @tour.destination %><br>
+    <div class="field">
+    <%= f.label :title, 'Tour Duration:' %><br>
+    <%= f.number_field :duration %>
+    </div>
 
-    <label>Price:</label><br>
-    <%= number_field_tag :'tour[price]', nil, min: 1, @tour.price %><br>
-
-    <label>Duration:</label><br>
-    <%= number_field_tag :'tour[duration]', nil, in: 1...13, @tour.duration %><br>
-
-    <label>Tour Description:</label><br>
-    <%= text_area_tag :'tour[description]', @tour.description, @tour.description  %><br>
-
-    <%= submit_tag "Submit Tour" %> 
-
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

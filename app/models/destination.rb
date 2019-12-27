@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
-    belongs_to :tour
-    belongs_to :user 
+    has_many :tours
+    #has_many :users, through :tours
     #validations
 
 end

@@ -1,16 +1,25 @@
 class DestinationsController < ApplicationController
 
-    def index 
-
+    def index
+        @destinations = Destination.all
     end
 
     def new
         @destination = Destination.new
     end
 
+    def show
+        @destination = Destination.find(params[:id])
+    end
+
     def create 
-        @destination = Destination.create(destination_params)
-        redirect_to destination_path(@destination)
+        @destination = Destination.new(destination_params)
+        if @destination.valid?
+            @destination.save
+            redirect_to destination_path(@destination)
+        else
+            render :new
+        end
     end
 
     def edit 
