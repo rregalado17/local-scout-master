@@ -14,12 +14,12 @@ class ToursController < ApplicationController
 
     def create 
         @tour = Tour.new(tour_params)
-        #if @tour.valid?
+        if @tour.valid?
             @tour.save
-            #redirect_to tour_path(@tour)
-        #else
-            #render :new
-        #end
+            redirect_to tour_path(@tour)
+        else
+            render :new
+        end
     end
 
     def edit 
