@@ -8,6 +8,13 @@
 <br>
 <h2><%= @tour.title %></h2>
 <%= @tour.description %>
+
+Comments:
+  <% @tour.comments.each do |c| %>
+    <%= link_to comment.user.username, user_path(c.user) %> said
+    <%= c.content %>
+  <% end %>
+
 <%= form_tag tour_path(@tour.id), method: "delete" do %>
   <%= submit_tag "Delete #{@tour.title}" %>
 <% end %>

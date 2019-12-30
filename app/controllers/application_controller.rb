@@ -1,17 +1,16 @@
 class ApplicationController < ActionController::Base
-
-    def current_user
-        if session[:user].present?
-            user = User.find_by(:id => session[:user_id])
-        end
-    end
-
-    def require_login
-        unless current_user 
-            redirect_to root_url
-        end
-    end
-
+    protect_from_forgery with: :exception
+    helper_method :current_user, :logged_in?
     
+    def index
+        
+    end
 
+    def logged_in?
+        !!current_user
+    end
+    
+    def current_user
+        @current_user ||= User.find_by_id(session[:user_id])
+    end
 end

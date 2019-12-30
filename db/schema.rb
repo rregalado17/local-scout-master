@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_035056) do
+ActiveRecord::Schema.define(version: 2019_12_28_202813) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "tour_id"
+    t.index ["tour_id"], name: "index_comments_on_tour_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "country"
     t.string "city"
+  end
+
+  create_table "tour_destinations", force: :cascade do |t|
+    t.integer "tour_id"
+    t.integer "destination_id"
+    t.index ["destination_id"], name: "index_tour_destinations_on_destination_id"
+    t.index ["tour_id"], name: "index_tour_destinations_on_tour_id"
   end
 
   create_table "tours", force: :cascade do |t|

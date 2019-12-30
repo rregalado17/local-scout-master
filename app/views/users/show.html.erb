@@ -1,0 +1,14 @@
+Name: <%= @user.name %><br>
+Username: <%= @user.username %><br>
+Budget: <%= @user.budget %><br>
+Vacation Days Remaining: <%= @user.vacation_time %><br>
+
+
+<h2><%= @user.username %> </h2> has commented on the following tours:
+ 
+<% @user.tours.each do |post| %>
+  <%= link_to tour.title, tour_path(post) %>
+<% end %>
+
+<%= link_to "Log Out", signout_path, method: "delete" %><br>
+<%= link_to "See tours", tours_path %><br>  

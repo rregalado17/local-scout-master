@@ -12,10 +12,14 @@
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :destination_id, 'Tour Destination:' %><br>
-    <%= f.collection_select :destination_id, Destination.order(:city), :id, :city, include_blank: true %>
-  </div>
+  <%= f.text_field :destination_city, list: "destination_autocomplete" %>
+  <datalist id="destination_autocomplete">
+    <% Destination.all.each do |d| %>
+      <option value="<%= d.city %>">
+    <% end %>
+  </datalist>
+
+
   
   <div class="field">
         <%= f.label :price, 'Tour Price:' %><br>

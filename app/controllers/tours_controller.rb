@@ -12,7 +12,8 @@ class ToursController < ApplicationController
         @tour = Tour.new
     end
 
-    def create 
+    def create
+        
         @tour = Tour.new(tour_params)
         if @tour.valid?
             @tour.save
@@ -40,7 +41,7 @@ class ToursController < ApplicationController
     private 
 
     def tour_params
-        params.require(:tour).permit(:title, :destination_id, :price, :duration, :description)
+        params.require(:tour).permit(:title, :destination_city, :price, :duration, :description)
     end
     
 end
