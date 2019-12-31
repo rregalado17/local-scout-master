@@ -12,15 +12,21 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.text_field :destination_city, list: "destination_autocomplete" %>
-  <datalist id="destination_autocomplete">
-    <% Destination.all.each do |d| %>
-      <option value="<%= d.city %>">
-    <% end %>
-  </datalist>
 
 
   
+  
+      <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
+      <datalist id="destination_autocomplete">
+        <% Destination.all.each do |d| %>
+          <option value="<%= (d.city) %>">
+        <% end %>
+      </datalist>
+      
+    
+
+
+
   <div class="field">
         <%= f.label :price, 'Tour Price:' %><br>
         <%= f.number_field :price %>

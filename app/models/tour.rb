@@ -7,11 +7,13 @@ class Tour < ActiveRecord::Base
     has_many :users, through: :comments
     #accepts_nested_attributes_for :destinations
 
-    def destination_city=(city)
+    def destinations_attributes=(city)
+        #self.destination.build(destinations_attributes)
+
         self.destination = Destination.find_or_create_by(city: city)
     end
 
-    def destination_city
+    def destinations_attributes
        self.destination ? self.destination.city : nil  
     end
     

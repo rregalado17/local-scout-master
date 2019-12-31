@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+    before_action :require_login
 
     def index 
         @tours = Tour.all
@@ -10,6 +11,7 @@ class ToursController < ApplicationController
 
     def new
         @tour = Tour.new
+        #@tour.destinations.build(:country => "Country", :city => "City")
     end
 
     def create
@@ -40,8 +42,12 @@ class ToursController < ApplicationController
 
     private 
 
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
+
     def tour_params
-        params.require(:tour).permit(:title, :destination_city, :price, :duration, :description)
+        params.require(:tour).permit(:title, :destinations_attributes, :destinattion, :price, :duration, :description)
     end
     
 end

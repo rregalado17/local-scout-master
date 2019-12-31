@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+    before_action :require_login
 
     def index
         @destinations = Destination.all
