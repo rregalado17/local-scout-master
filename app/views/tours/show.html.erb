@@ -11,7 +11,7 @@
 
 Comments:
   <% @tour.comments.each do |c| %>
-    <%= link_to comment.user.username, user_path(c.user) %> said
+    <%= link_to c.user.username, user_path(c.user) %> said
     <%= c.content %>
   <% end %>
 

@@ -2,10 +2,10 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %><br>
 
-    <%= f.text_field :destination_city, list: "destination_autocomplete" %>
+    <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
     <datalist id="destination_autocomplete">
       <% Destination.all.each do |d| %>
-        <option value="<%= d.city %>">
+        <option value="<%= (d.city) %>">
       <% end %>
     </datalist><br>
   
