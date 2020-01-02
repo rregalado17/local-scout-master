@@ -15,7 +15,13 @@ Comments:
     <%= c.content %>
   <% end %>
 
+  <%= render 'comments/form' %>
+  <%= render 'comments/comment' %> 
+
 <%= form_tag tour_path(@tour.id), method: "delete" do %>
   <%= submit_tag "Delete #{@tour.title}" %>
 <% end %>
+
+<%= link_to 'Edit', edit_tour_path(@tour) %>
+<%= link_to 'Back', tours_path %> 
 

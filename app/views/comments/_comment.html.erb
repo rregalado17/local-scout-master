@@ -1,0 +1,6 @@
+<% @comments.each do |c| %>
+    <p>
+    <%= c.content %>
+    <%= link_to "Delete", tour_comment_path(c.tour_id, c.id), method: :delete %> 
+</p>
+    <% end %>

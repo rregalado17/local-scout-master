@@ -14,13 +14,14 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
+            #flash[:custom_error_message_1] = "Please complete form correctly."
             render :new
         end
     end
 
     def show 
         if logged_in?
-        @user = User.find_by(:id => params[:id])
+        @user = current_user
         else
             redirect_to root_path
         end

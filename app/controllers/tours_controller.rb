@@ -7,6 +7,8 @@ class ToursController < ApplicationController
 
     def show
         @tour = Tour.find(params[:id])
+        @comment = Comment.new
+        @comments = @tour.comments
     end
 
     def new
@@ -15,7 +17,6 @@ class ToursController < ApplicationController
     end
 
     def create
-        
         @tour = Tour.new(tour_params)
         if @tour.valid?
             @tour.save

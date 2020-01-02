@@ -2,9 +2,9 @@ class Tour < ActiveRecord::Base
     #belongs_to :user 
     belongs_to :destination
     has_many :comments
-    has_many :tour_destinations
+    #has_many :tour_destinations
     #has_many :destinations, through: :tour_destinations
-    has_many :users, through: :comments
+    #has_many :users, through: :comments
     #accepts_nested_attributes_for :destinations
 
     def destinations_attributes=(city)

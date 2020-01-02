@@ -6,8 +6,8 @@ Vacation Days Remaining: <%= @user.vacation_time %><br>
 
 <h2><%= @user.username %> </h2> has commented on the following tours:
  
-<% @user.tours.each do |post| %>
-  <%= link_to tour.title, tour_path(post) %>
+<% @user.tours.each do |tour| %>
+  <%= link_to tour.title, tour_path(tour) %>
 <% end %>
 
 <%= link_to "Log Out", signout_path, method: "delete" %><br>
