@@ -1,0 +1,2 @@
+class TakeTour < ApplicationRecord
+end

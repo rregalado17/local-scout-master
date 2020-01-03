@@ -13,7 +13,7 @@ class ToursController < ApplicationController
 
     def new
         @tour = Tour.new
-        #@tour.destinations.build(:country => "Country", :city => "City")
+        #@destination = @tour.build_destination(:country => "Country", :city => "City")
     end
 
     def create
@@ -48,7 +48,7 @@ class ToursController < ApplicationController
     end
 
     def tour_params
-        params.require(:tour).permit(:title, :destinations_attributes, :destinattion, :price, :duration, :description, :user_id)
+        params.require(:tour).permit(:title, :price, :duration, :description, :user_id, destination_attributes:[:id, :country, :city] )
     end
     
 end

@@ -1,5 +1,7 @@
 <h1>Tour: <%= @tour.title %></h1><br>
-<br>Destination: <%= @tour.destination.city %></h1><br>
+<br>Destination: 
+  <%= @tour.destination.country %></h1><br>
+  <%= @tour.destination.city %></h1><br>
 
 
 <br>Price: <%= @tour.price %></h1><br>
@@ -7,13 +9,15 @@
 <br>Description: <%= @tour.description %></h1><br>
 <br>
 <h2><%= @tour.title %></h2>
-<%= @tour.description %>
+<%= @tour.description %><p>
 
-Comments:
-  <% @tour.comments.each do |c| %>
-    <%= link_to c.user.username, user_path(c.user) %> said
-    <%= c.content %>
+<p>
+<% if current_user %>
+  <%= form_tag tours_path do %>
+    <%= hidden_field_tag :tour_id, @tour.id %>
+    <%= submit_tag "Go on this tour" %>
   <% end %>
+<% end %>
 
   <%= render 'comments/form' %>
   <%= render 'comments/comment' %> 

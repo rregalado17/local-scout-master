@@ -1,6 +1,6 @@
 <%= form_for ([@tour, @comment]) do |f| %>
-    <%= f.label :content %>
-    <%= f.text_field :content %> 
+    <%= f.label :comment %><br>
+    <%= f.text_area :content %> <br>
     <%= f.hidden_field :user_id, values: current_user.id %>
 
 
