@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 root "sessions#home"
 
 resources :users
+resources :trips
 resources :destinations, only: [:index, :show, :new, :create, :edit, :destroy]
 resources :tours do 
   resources :comments
@@ -20,6 +21,7 @@ post '/signin' => "sessions#create"
 delete '/signout' => "sessions#destroy"
 get '/signup' => "users#new"
 post '/signup' => "users#create"
-
+get 'trips/create'
+post '/trip' => "trips#create"
 
 end

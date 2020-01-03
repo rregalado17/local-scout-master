@@ -16,12 +16,12 @@
 
   
   
-      <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
-      <datalist id="destination_autocomplete">
-        <% Destination.all.each do |d| %>
-          <option value="<%= (d.city) %>">
-        <% end %>
-      </datalist>
+  <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
+  <datalist id="destination_autocomplete">
+      <% Destination.all.each do |d| %>
+        <option value="<%= (d.city) %>">
+      <% end %>
+    </datalist>
       
     
 
@@ -36,6 +36,8 @@
     <%= f.label :title, 'Tour Duration:' %><br>
     <%= f.number_field :duration %>
     </div>
+
+    <%= f.hidden_field :user_id, values: current_user.id %>
 
   <div class="actions">
     <%= f.submit %>

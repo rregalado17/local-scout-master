@@ -1,8 +1,11 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+
 Name: <%= @user.name %><br>
 Username: <%= @user.username %><br>
 Budget: <%= @user.budget %><br>
 Vacation Days Remaining: <%= @user.vacation_time %><br>
-
 
 <h2><%= @user.username %> </h2> has commented on the following tours:
  

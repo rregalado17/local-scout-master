@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_202438) do
+ActiveRecord::Schema.define(version: 2020_01_03_044449) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 2019_12_31_202438) do
     t.integer "duration"
     t.text "description"
     t.integer "destination_id"
+    t.integer "user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.integer "tour_id"
+    t.integer "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["destination_id"], name: "index_trips_on_destination_id"
+    t.index ["tour_id"], name: "index_trips_on_tour_id"
   end
 
   create_table "users", force: :cascade do |t|

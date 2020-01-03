@@ -13,9 +13,9 @@
 
 <p>
 <% if current_user %>
-  <%= form_tag tours_path do %>
+  <%= form_tag trips_path do %>
     <%= hidden_field_tag :tour_id, @tour.id %>
-    <%= submit_tag "Go on this tour" %>
+    <%= submit_tag "Go on this trip" %>
   <% end %>
 <% end %>
 
@@ -27,5 +27,6 @@
 <% end %>
 
 <%= link_to 'Edit', edit_tour_path(@tour) %>
-<%= link_to 'Back', tours_path %> 
+<%= link_to 'Tours', tours_path %> 
+<%= link_to 'New', new_tour_path %> 
 

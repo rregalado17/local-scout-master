@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     has_many :destinations
     has_many :comments
+    has_many :trips
     has_many :tours
     has_many :tours, through: :comments
     has_secure_password
