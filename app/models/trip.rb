@@ -3,7 +3,7 @@ class Trip < ActiveRecord::Base
     belongs_to :tour
 
     def take_trip 
-        if youre_broke? &&  
+        if youre_broke? && youre_out_of_time?
             "You need to go back to work and save more money. You don't have enough time or cash for the #{tour.title} tour."
         elsif youre_broke?
             "Looks like your budget ran out. Consider going on this #{tour.title} tour when you have some cash."

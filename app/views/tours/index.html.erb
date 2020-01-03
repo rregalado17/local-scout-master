@@ -1,5 +1,7 @@
-<h1>Tours available for <h1/>
+<h1>Tours available for <h1/><p>
 <ul><% @tours.each do |t| %>
     <li><%= link_to t.title, tour_path(t) %></li>
-    <%= link_to 'New', new_tour_path %> 
-  <% end %> </ul>
+  <% end %> </ul></p>
+
+  <%= link_to 'New', new_tour_path %><br>
+  <%= link_to "Log Out", signout_path, method: "delete" %><br>
