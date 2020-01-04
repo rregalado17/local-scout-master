@@ -1,5 +1,10 @@
 
 <h1>Users</h1>
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <p class="error"><%= msg %></p>
+  <% end %>
+<% end %>
 
 <%= form_for @user do |f| %>
   <%= f.label :name %>

@@ -1,4 +1,4 @@
 class TourDestination < ActiveRecord::Base
-    belongs_to :tour 
-    belongs_to :destination 
+    #belongs_to :tour 
+    #belongs_to :destination 
 end

@@ -1,5 +1,5 @@
 class TripsController < ApplicationController 
-    #before_action :set_ride, only: [:show, :edit, :update, :destroy]
+    #\before_action :set_, only: [:show, :edit, :update, :destroy]
 
     def index
        @trips = Trip.all  
@@ -31,8 +31,9 @@ class TripsController < ApplicationController
 
     private 
     def trip_params 
-       params.require(:trip).permit(:name, :user_id, :tour_id) 
+       params.require(:trip).permit(:name, :user_id, :tour_id, :destination_id) 
     end
+
     def set_trip
         @trip = Trip.find_by_id(params[:id])
     end
