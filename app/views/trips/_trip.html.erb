@@ -1,0 +1,6 @@
+<% if current_user %>
+  <%= form_tag trips_path do %>
+    <%= hidden_field_tag :tour_id, @tour.id %>
+    <%= submit_tag "Go on this trip" %>
+  <% end %>
+<% end %>

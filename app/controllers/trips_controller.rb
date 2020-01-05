@@ -17,7 +17,7 @@ class TripsController < ApplicationController
 
     def create 
         @trip = Trip.new(user_id: current_user.id, tour_id: params[:tour_id])
-  
+        @tour = Tour.find(params[:tour_id])
         if @trip.save
             redirect_to user_path(current_user), notice:@trip.take_trip
         else 
@@ -32,7 +32,7 @@ class TripsController < ApplicationController
 
     private 
     def trip_params 
-       params.require(:trip).permit(:name, :user_id, :tour_id, :destination_id) 
+       params.require(:trip).permit(:name, :user_id, :tour_id, :destination_id, :tours_attributes) 
     end
 
     #def set_trip

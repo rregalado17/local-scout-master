@@ -16,12 +16,7 @@
 <%= render 'comments/comment' %> 
 <br>
 
-<% if current_user %>
-  <%= form_tag trips_path do %>
-    <%= hidden_field_tag :tour_id, @tour.id %>
-    <%= submit_tag "Go on this trip" %>
-  <% end %>
-<% end %>
+<%= render 'trips/trip' %>
 
 
 <%= form_tag tour_path(@tour.id), method: "delete" do %>

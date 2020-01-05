@@ -30,4 +30,14 @@ class Trip < ActiveRecord::Base
     def trip_rejection
         Trip.destroy(self.id)
     end
+
+    def tours_attributes=(title)
+        #self.destination.build(destinations_attributes)
+
+        self.title = Tour.find_or_create_by(title: title)
+    end
+
+    def tours_attributes
+       self.title ? self.tour.title : nil  
+    end
 end
