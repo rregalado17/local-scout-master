@@ -18,8 +18,8 @@ class ToursController < ApplicationController
 
     def create
         @tour = Tour.new(tour_params.merge(user_id: current_user.id))
-        if @tour.valid?
-            @tour.save
+        binding.pry
+        if  @tour.save
             redirect_to tour_path(@tour)
         else
             render :new
@@ -48,7 +48,7 @@ class ToursController < ApplicationController
     end
 
     def tour_params
-        params.require(:tour).permit(:title, :description, :destinations_attributes, :price, :duration, :user_id, :destination_id, :id)
+        params.require(:tour).permit(:title, :description, :price, :duration, :user_id, :destination_id, :id, :destinations_attributes)
     end
     
 end

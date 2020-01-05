@@ -4,8 +4,9 @@ class Tour < ActiveRecord::Base
     has_many :comments
     has_many :trips
     validates :price, :duration, length: { minimum: 1 }
-    validates :description, length: { in: 6..250 }
+    #validates :description, length: { in: 6..250 }
     validates :title, uniqueness: true
+    #scope :vip, -> { where(:price > 1000)}
     #validates :title, :destination, :duration, :price, :description, presence: true
    
 

@@ -23,5 +23,6 @@ get '/signup' => "users#new"
 post '/signup' => "users#create"
 get 'trips/create'
 post '/trip' => "trips#create"
+get '/auth/facebook/callback' => 'sessions#create'
 
 end
