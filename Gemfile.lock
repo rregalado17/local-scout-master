@@ -130,6 +130,7 @@ GEM
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
+    parslet (1.8.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -194,6 +195,7 @@ GEM
     thor (1.0.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    trollop (2.9.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -211,6 +213,10 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yarn (0.1.1)
+      parslet (>= 1.2)
+      rack (>= 1.3)
+      trollop (>= 1.16)
 
 PLATFORMS
   ruby
@@ -237,6 +243,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  yarn
 
 RUBY VERSION
    ruby 2.6.1p33

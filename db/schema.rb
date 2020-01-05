@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 2020_01_03_044449) do
     t.string "city"
   end
 
-  create_table "tour_destinations", force: :cascade do |t|
-    t.integer "tour_id"
-    t.integer "destination_id"
-    t.index ["destination_id"], name: "index_tour_destinations_on_destination_id"
-    t.index ["tour_id"], name: "index_tour_destinations_on_tour_id"
-  end
-
   create_table "tours", force: :cascade do |t|
     t.string "title"
     t.string "destination"

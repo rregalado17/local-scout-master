@@ -3,11 +3,10 @@ class Tour < ActiveRecord::Base
     belongs_to :destination
     has_many :comments
     has_many :trips
-    validates :price, :duration, length: { minimum: 1 }
-    #validates :description, length: { in: 6..250 }
+    #validates :price, :duration, length: { minimum: 1 }
     validates :title, uniqueness: true
-    #scope :vip, -> { where(:price > 1000)}
-    #validates :title, :destination, :duration, :price, :description, presence: true
+    scope :vip, -> { where("price >= 1000" ) }
+    validates :title, :destination, :duration, :price, :description, presence: true
    
 
     def destinations_attributes=(city)
@@ -19,6 +18,8 @@ class Tour < ActiveRecord::Base
     def destinations_attributes
        self.destination ? self.destination.city : nil  
     end
+
+
     
 
 end

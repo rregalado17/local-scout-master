@@ -8,10 +8,14 @@
 <br>Duration: <%= @tour.duration %></h1><br>
 <br>Description: <%= @tour.description %></h1><br>
 <br>
-<h2><%= @tour.title %></h2>
-<%= @tour.description %><p>
+<p>
 
 <p>
+
+<%= render 'comments/form' %>
+<%= render 'comments/comment' %> 
+<br>
+
 <% if current_user %>
   <%= form_tag trips_path do %>
     <%= hidden_field_tag :tour_id, @tour.id %>
@@ -19,13 +23,11 @@
   <% end %>
 <% end %>
 
-  <%= render 'comments/form' %>
-  <%= render 'comments/comment' %> 
 
 <%= form_tag tour_path(@tour.id), method: "delete" do %>
   <%= submit_tag "Delete #{@tour.title}" %>
 <% end %>
-
+<p><br>
 <%= link_to 'Edit', edit_tour_path(@tour) %>
 <%= link_to 'Tours', tours_path %> 
 <%= link_to 'New', new_tour_path %> 

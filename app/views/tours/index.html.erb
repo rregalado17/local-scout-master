@@ -1,3 +1,8 @@
+<h1>VIP Tours available for <h1/><p>
+<ul><% @tours.vip.each do |t| %>
+    <li><%= link_to t.title, tour_path(t) %></li>
+  <% end %> </ul></p>
+
 <h1>Tours available for <h1/><p>
 <ul><% @tours.each do |t| %>
     <li><%= link_to t.title, tour_path(t) %></li>

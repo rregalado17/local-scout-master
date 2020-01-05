@@ -1,5 +1,7 @@
 {
   "name": "local-scout-master",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
 }

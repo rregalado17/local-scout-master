@@ -6,15 +6,14 @@ class User < ActiveRecord::Base
     has_many :tours, through: :comments
     has_secure_password
     validates :name, :username, length: { minimum: 2, message: "Must be at least 2 characters." } 
-    validates :password, length: { in: 6..20, message: "Must be at least 6 characters." }
     validate :minimum_numerical
-    validates :name, :username, :password, :budget, :vacation_time, presence: true
+    validates :name, :username, :budget, :vacation_time, presence: true
     validates :username, uniqueness: true
     
     def minimum_numerical
-        if self.budget < 1
+        if self.budget < 0
             errors.add(:budget, "Please enter a proper budget amount.")
-        else self.vacation_time < 1
+        elsif self.vacation_time < 0
             errors.add(:vacation_time, "Please enter how many vacation days you are alotted.")
         end
     end

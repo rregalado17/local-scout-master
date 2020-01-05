@@ -1,7 +1,7 @@
 class Trip < ActiveRecord::Base
     belongs_to :user 
     belongs_to :tour
-    belongs_to :destination
+    #belongs_to :destination
 
     def take_trip 
         if youre_broke? && youre_out_of_time?

@@ -18,7 +18,6 @@ class ToursController < ApplicationController
 
     def create
         @tour = Tour.new(tour_params.merge(user_id: current_user.id))
-        binding.pry
         if  @tour.save
             redirect_to tour_path(@tour)
         else
