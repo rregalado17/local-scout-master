@@ -7,7 +7,7 @@ Username: <%= @user.username %><br>
 Budget: <%= @user.budget %><br>
 Vacation Days Remaining: <%= @user.vacation_time %><br>
 
-<h1>Here are the trips you have been on so far! <h1/><p>
+<h1>Here are the trips you have been on so far! <h1/><p><br>
 <ul><% @user.trips.each do |t| %>
     <li><%= link_to t.tour.title, tour_path(t.tour) %></li>
   <% end %> </ul></p>

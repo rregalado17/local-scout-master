@@ -1,3 +1,4 @@
+<%= render partial: "home", locals: {user: @user} %>
 
 <h1>Users</h1>
 <% if @user.errors.any? %>
@@ -16,15 +17,11 @@
   <%= f.label :password  %>
   <%= f.text_field :password %><br>
 
-
-
   <%= f.label :budget %>
   <%= f.number_field :budget %><br>
 
   <%= f.label :vacation_time %>
   <%= f.number_field :vacation_time %><br>
-
-
 
   <%= f.submit "Create User" %>
   <% end %>

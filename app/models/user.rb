@@ -23,40 +23,10 @@ class User < ActiveRecord::Base
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.password = "password123"
-          end
+        end
     
-          session[:user_id] = @user.id
-          render 'sessions/home'
-      end
+        session[:user_id] = @user.id
+        render 'sessions/home'
+    end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #has_many :tours, through destinations
-    #has_many :users_destinations
-    #has_many :destinations through :users_destinations 
-    #has_many :tours, dependent: :destroy

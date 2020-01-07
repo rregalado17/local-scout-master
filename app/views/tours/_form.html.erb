@@ -1,0 +1,43 @@
+<% if @tour.errors.any? %>
+  <% @tour.errors.full_messages.each do |msg| %>
+    <p class="error"><%= msg %></p>
+  <% end %>
+<% end %>
+
+<h1>New Tour</h1><br>
+
+<%= form_for(@tour) do |f| %>
+  <div class="field">
+    <%= f.label :title, 'Tour Title:' %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, 'Tour Description:' %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  Destination: <br>
+  <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
+  <datalist id="destination_autocomplete">
+      <% Destination.all.each do |d| %>
+        <option value="<%= (d.city) %>">
+      <% end %>
+    </datalist>
+
+  <div class="field">
+        <%= f.label :price, 'Tour Price:' %><br>
+        <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, 'Tour Duration:' %><br>
+    <%= f.number_field :duration %>
+    </div>
+    
+    <%= f.hidden_field :user_id, values: current_user.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

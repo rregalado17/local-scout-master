@@ -6,8 +6,17 @@ class Tour < ActiveRecord::Base
     #validates :price, :duration, length: { minimum: 1 }
     validates :title, uniqueness: true
     scope :vip, -> { where("price >= 1000" ) }
+    #scope :vips, -> (vip) { where("price >= ?", vip ) }
     validates :title, :destination, :duration, :price, :description, presence: true
    
+
+    #def self.vip(price)
+        #if price.present?
+          #where("price > ?", price)
+        #else
+          #all
+        #end
+    #end
 
     def destinations_attributes=(city)
         #self.destination.build(destinations_attributes)
