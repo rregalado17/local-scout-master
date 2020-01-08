@@ -1,6 +1,6 @@
 <% if flash[:notice] %>
 <p><%= flash[:notice] %></p>
-<% end %>
+<% end %><br>
 
 <h1><%= users_header(@user) %></h1><br>
 
@@ -21,7 +21,7 @@ Vacation Days Remaining: <%= @user.vacation_time %><br>
 <% end %></ul>
 
 <br><%= link_to 'Update your profile', edit_user_path(@user) %><br>
-<br><%= link_to "See all tours", tours_path %><br>
+<br><%= link_to "See all tours", tours_path %>
 <br><%= link_to "See all destinations", destinations_path %><br>  
 <br><%= link_to "Log Out", signout_path, method: "delete" %>
  

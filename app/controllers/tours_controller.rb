@@ -17,6 +17,7 @@ class ToursController < ApplicationController
     end
 
     def create
+        @user = User.find_by_id(session[:user_id])
         @tour = Tour.new(tour_params.merge(user_id: current_user.id))
         if  @tour.save
             redirect_to tour_path(@tour)

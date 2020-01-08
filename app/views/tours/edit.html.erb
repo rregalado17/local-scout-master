@@ -1,1 +1,6 @@
+<% if @tour && @tour.user_id == current_user.id %>
 <%= render partial: "form", locals: {tour: @tour} %>
+<% else %> 
+<h1>You can only edit tours that you have made!</h1>
+<%= render 'users/home' %><br>
+<% end %>

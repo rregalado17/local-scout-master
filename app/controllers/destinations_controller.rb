@@ -19,20 +19,6 @@ class DestinationsController < ApplicationController
         end
     end
 
-    def edit 
-        @destination = Destination.find(params[:id])
-    end
-
-    #def update
-        #@destination = Destination.find(params[:id])
-        #@destination.update(destination_params)
-        #redirect_to destination_path(@destination)
-    #end
-
-    #def destroy
-
-    #end
-
     private 
 
     def require_login

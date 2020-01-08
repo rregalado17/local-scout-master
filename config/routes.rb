@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
 root "application#index"
 
-resources :users
-resources :trips
+resources :users, only: [:new, :create, :edit, :update, :show]
+resources :trips, only: [:new, :create]
 resources :destinations, only: [:index, :show]
 resources :tours do 
   resources :comments
