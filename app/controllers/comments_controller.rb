@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     def create
         @tour = Tour.find(params[:tour_id])
         @comment = @tour.comments.create(comment_params.merge(user_id: current_user.id))
-        #binding.pry
         if @comment.save
             redirect_to tour_path(@tour)
         end

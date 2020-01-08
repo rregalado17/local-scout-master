@@ -6,14 +6,12 @@ root "application#index"
 
 resources :users
 resources :trips
-resources :destinations, only: [:index, :show, :new, :create, :edit, :destroy]
+resources :destinations, only: [:index, :show]
 resources :tours do 
   resources :comments
 end
 
 
-
-patch 'destinations/:id', to: 'destinations#update'
 patch 'tours/:id', to: 'tours#update'
 
 get '/signin' => "sessions#new"

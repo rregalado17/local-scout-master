@@ -1,27 +1,28 @@
-<%= link_to "Homepage", user_path %>
+<%= render 'users/home' %><br>
 <br>
 
-<h1>Tour: <%= @tour.title %></h1><br>
+Tour: <%= @tour.title %><br>
 Destination: <%= @tour.destination.city %><br>
-Price: $<%= @tour.price %></h1><br>
+Price: $<%= @tour.price %><br>
 Duration: <%= @tour.duration %> day(s)<br>
 Description: <%= @tour.description %><br>
-<br>
+
+
 <%= render 'trips/trip' %>
 <br>
 
 <%= render 'comments/form' %><br>
 <%= render 'comments/comment' %> <br>
 
-<%= form_tag tour_path(@tour.id), method: "delete" do %>
-  <%= submit_tag "Delete #{@tour.title}" %>
-<% end %>
+<% if @tour && @tour.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_tour_path(@tour) %><br>
+  <%= render partial: "nav", locals: {tour: @tour} %>
+  <%= form_tag tour_path(@tour.id), method: "delete" do %>
+    <%= submit_tag "Delete #{@tour.title}" %><br>
+  <% end %>
 <br>
-
-<%= link_to 'New', new_tour_path %><br>
-<%= link_to 'Edit', edit_tour_path(@tour) %><br>
-<%= link_to 'Tours', tours_path %><br> 
-
-<br><%= link_to "Log Out", signout_path, method: "delete" %><br>
+  <% else %> 
+  <%= render partial: "nav", locals: {tour: @tour} %>
+<% end %>
 
 

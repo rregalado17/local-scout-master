@@ -1,5 +1,5 @@
 class TripsController < ApplicationController 
-    #\before_action :set_, only: [:show, :edit, :update, :destroy]
+    before_action :require_login
 
     def index
        @trips = Trip.all  
@@ -35,7 +35,7 @@ class TripsController < ApplicationController
        params.require(:trip).permit(:name, :user_id, :tour_id, :destination_id, :tours_attributes) 
     end
 
-    #def set_trip
-       # @trip = Trip.find_by_id(params[:id])
-    #end
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
 end

@@ -4,18 +4,12 @@
   <% end %>
 <% end %>
 
-<h1>New User</h1>
+<h1>Update your profile!</h1><br>
 
 
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
-
-  <%= f.label :password  %>
-  <%= f.text_field :password %><br>
+Name: <%= @user.name %><br>
+Username: <%= @user.username %><br>
 
   <%= f.label :budget %>
   <%= f.number_field :budget %><br>
@@ -23,5 +17,6 @@
   <%= f.label :vacation_time %>
   <%= f.number_field :vacation_time %><br>
 
-  <%= f.submit "Create User" %>
-  <% end %>
+  <%= f.submit "Update User" %>
+<% end %>
+

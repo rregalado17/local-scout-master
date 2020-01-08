@@ -3,21 +3,11 @@ class Tour < ActiveRecord::Base
     belongs_to :destination
     has_many :comments
     has_many :trips
-    #validates :price, :duration, length: { minimum: 1 }
     validates :title, uniqueness: true
     scope :vip, -> { where("price >= 1000" ) }
     #scope :vips, -> (vip) { where("price >= ?", vip ) }
     validates :title, :destination, :duration, :price, :description, presence: true
    
-
-    #def self.vip(price)
-        #if price.present?
-          #where("price > ?", price)
-        #else
-          #all
-        #end
-    #end
-
     def destinations_attributes=(city)
         #self.destination.build(destinations_attributes)
 
@@ -27,9 +17,6 @@ class Tour < ActiveRecord::Base
     def destinations_attributes
        self.destination ? self.destination.city : nil  
     end
-
-
-    
 
 end
 

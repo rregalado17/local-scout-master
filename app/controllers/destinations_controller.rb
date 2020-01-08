@@ -5,10 +5,6 @@ class DestinationsController < ApplicationController
         @destinations = Destination.all
     end
 
-    def new
-        @destination = Destination.new
-    end
-
     def show
         @destination = Destination.find(params[:id])
     end
@@ -27,17 +23,21 @@ class DestinationsController < ApplicationController
         @destination = Destination.find(params[:id])
     end
 
-    def update
-        @destination = Destination.find(params[:id])
-        @destination.update(destination_params)
-        redirect_to destination_path(@destination)
-    end
+    #def update
+        #@destination = Destination.find(params[:id])
+        #@destination.update(destination_params)
+        #redirect_to destination_path(@destination)
+    #end
 
-    def destroy
+    #def destroy
 
-    end
+    #end
 
     private 
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
 
     def destination_params
         params.require(:destination).permit(:country, :city)

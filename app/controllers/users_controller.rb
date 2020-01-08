@@ -15,7 +15,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            #flash[:custom_error_message_1] = "Please complete form correctly."
+            flash[:custom_error_message_1] = "Please complete form correctly."
             render :new
         end
     end
@@ -26,6 +26,16 @@ class UsersController < ApplicationController
         else
             redirect_to root_path
         end
+    end
+
+    def edit 
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        redirect_to user_path(@user)
     end
 
     private 

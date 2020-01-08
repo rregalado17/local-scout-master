@@ -1,28 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Local Scout is a rails web application that manages your budget and vacation time against trips you might consider taking and lets you browse trip ideas by other users! You can track the trips that you have taken and comment on them if you find them good or bad. There is also a VIP Trips section that holds all trips over $1000 is you really want to treat yourself! 
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # local-scout-master
+
 Requirements
 Use the Ruby on Rails framework.
 
@@ -67,7 +50,4 @@ A Recipe Manager - Should provide the ability to browse recipes by different fil
 
 A Group Task Manager - An application that allowed the creation of task lists with individual tasks that can be assigned to a user would flex the majority of the requirements of this assessment. You would be able to create a list of tasks, add tasks to that list, assign those tasks to a user, and allow users to change the statuses of their tasks.
 
-Restricted Domains
-A Basic Blog App - We've used a Blog domain design for a lot of the rails lessons and code-alongs. The blog must have unique features/approaches and solve problems in different ways.
-
-An Amusement Park - This is the domain design for one of the final Rails projects. Try to find inspiration from this project and build something unique and different.
+License Local Scout is available as open source under the terms of the MIT License.
