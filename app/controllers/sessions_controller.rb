@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
         user = User.from_omniauth(env["omniauth.auth"])
         log_in user
         redirect_back_or user
-      end
+    end
 
     def destroy
         session.delete :user_id

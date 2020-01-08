@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
             u.email = auth['info']['email']
             u.password = "password123"
         end
-    
         session[:user_id] = @user.id
         render 'sessions/home'
     end
