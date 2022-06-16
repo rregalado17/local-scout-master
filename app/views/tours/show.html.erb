@@ -23,7 +23,7 @@ Description: <%= @tour.description %><br>
   <%= render partial: "nav", locals: {tour: @tour} %>
   <%= form_tag tour_path(@tour.id), method: "delete" do %>
     <%= submit_tag "Delete #{@tour.title}" %><br>
-  <% end %>
+<% end %>
 <br>
   <% else %> 
   <%= render partial: "nav", locals: {tour: @tour} %>

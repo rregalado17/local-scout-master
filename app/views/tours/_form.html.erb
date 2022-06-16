@@ -4,8 +4,6 @@
     <% end %>
 <% end %>
 
-Tour:<br>
-<br>
 <%= form_for(@tour) do |f| %>
     <div class="field">
         <%= f.label :title, 'Tour Title:' %><br>
@@ -17,7 +15,7 @@ Tour:<br>
         <%= f.text_area :description %>
     </div>
 
-    Destination: <br>
+    City: <br>
     <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
     <datalist id="destination_autocomplete">
         <% Destination.all.each do |d| %>

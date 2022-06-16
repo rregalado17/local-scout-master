@@ -1,13 +1,14 @@
 
 <%= form_for @user, url: '/signin' do |f| %>
-    <%= f.label :name %>
-    <%= f.collection_select(:name, User.all, :name, :name, :prompt => "Please select your name from this dropdown") %><br>
+    <%= f.label :username %>: 
+    <%= f.collection_select(:username, User.all, :username, :username, :prompt => "Please select your name from this dropdown") %><br>
   
-  <%= f.label :password %>
+  <%= f.label :password %>: 
   <%= f.password_field :password, :id => 'password' %>
   
   <%= f.submit "Sign In" %>
   
   <% end %>
+  <br>
   <%= link_to('Facebook Sign up/Log in!', '/auth/facebook') %><br>
   <%= link_to "Sign Up", signup_path %><br>  
