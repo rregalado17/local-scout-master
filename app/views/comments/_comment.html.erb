@@ -2,6 +2,8 @@
     <p>
         <%= link_to c.user.username, user_path(c.user) %> said:
         <%= c.content %>
+        
+
         <%= link_to "Delete", tour_comment_path(c.tour_id, c.id), method: :delete %> 
     </p>
     <% end %>

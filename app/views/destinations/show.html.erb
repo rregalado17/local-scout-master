@@ -1,4 +1,4 @@
-<h1>City: <%= @destination.city %></h1><br>
+<h1>City: <%= @destination.city %></h1>
 
 <h3><%= pluralize(@destination.tours.count, 'Tour') %></h3>
 <ul>
@@ -6,3 +6,4 @@
     <li><%= link_to tour.title, tour_path(tour) %></li>
   <% end %>
 </ul>
+
