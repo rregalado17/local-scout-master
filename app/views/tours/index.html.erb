@@ -1,12 +1,12 @@
-<h1>VIP Tours available for: <h1/><p>
-<ul><% @tours.vip.each do |t| %>
+<h2>VIP Tours available: </h2>
+<h3><ul><% @tours.vip.each do |t| %>
     <li><%= link_to t.title, tour_path(t) %></li>
-  <% end %> </ul></p>
+  <% end %> </ul></h3>
 <br>
-<h1>Tours available for: </h1><p>
+<h2>Tours available: </h2>
 <ul><% @tours.each do |t| %>
     <li><%= link_to t.title, tour_path(t) %></li>
-  <% end %> </ul></p>
+  <% end %> </ul>
 <br>
   <%= link_to 'New', new_tour_path %>
   <br><%= link_to "See all destinations", destinations_path %>

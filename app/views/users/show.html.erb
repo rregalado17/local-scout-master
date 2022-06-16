@@ -1,6 +1,6 @@
 <% if flash[:notice] %>
 <p><%= flash[:notice] %></p>
-<% end %><br>
+<% end %>
 
 <h2><%= users_header(@user) %></h2>
 Name:     <%= @user.name %><br>
@@ -8,12 +8,12 @@ Username: <%= @user.username %><br>
 Budget:   $<%= @user.budget %><br>
 Vacation Days Remaining: <%= @user.vacation_time %><br>
  
-<br><h1>Here are the trips you have been on so far! <h1/><p>
+<h2>Here are the trips you have been on so far! </h2>
   <ul><% @user.trips.each do |t| %>
     <li><%= link_to t.tour.title, tour_path(t.tour) %></li>
-  <% end %> </ul></p><br>
+  <% end %> </ul>
   
-<h2><%= @user.username %> has commented on the following tours:</h2> <br>
+<h2><%= @user.username %> has commented on the following tours:</h2>
  
 <ul><% @user.tours.each do |tour| %>
   <li><%= link_to tour.title, tour_path(tour) %></li>

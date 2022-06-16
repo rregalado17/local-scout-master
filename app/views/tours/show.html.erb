@@ -2,14 +2,14 @@
 <p><%= flash[:notice] %></p>
 <% end %><br>
 
-<%= render 'users/home' %><br>
+<h3><%= render 'users/home' %></h3>
 <br>
 
 Tour: <%= @tour.title %><br>
 Destination: <%= @tour.destination.city %><br>
 Price: $<%= @tour.price %><br>
 Duration: <%= @tour.duration %> day(s)<br>
-Description: <%= @tour.description %><br>
+Description: <%= @tour.description %></p>
 
 
 <%= render 'trips/trip' %>
