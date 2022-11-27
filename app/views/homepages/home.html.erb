@@ -1,0 +1,12 @@
+<div class="container" id="home-container">
+    <div class="jumbotron text-center text-black">
+        <h1 class="display-4">Welcome to Local Scout</h1>
+        <hr class="my-4">
+        <p class="lead">Please sign in or sign up to find your next Local Scout!</p>
+        <p class="lead">    
+        <%= link_to "Sign Up!", signup_path, class: "btn btn-primary btn-lg" %><p>
+        <%= link_to "Sign In!", signin_path, class: "btn btn-primary btn-sm" %><p>
+        <%= link_to('Sign in with Facebook!', '/auth/facebook') %><br>
+        </p>
+    </div>
+</div> 

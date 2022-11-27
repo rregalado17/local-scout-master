@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-root "application#index"
+# root "application#index"
 
+root "homepages#home"
 resources :users, only: [:new, :create, :edit, :update, :show]
 resources :trips, only: [:new, :create]
 resources :destinations, only: [:index, :show]

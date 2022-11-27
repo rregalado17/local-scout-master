@@ -2,7 +2,14 @@
 <p><%= flash[:notice] %></p>
 <% end %><br>
 
-<h3><%= render 'users/home' %></h3>
+<h2 class="text-center mt-4"><%= @tour.title %></h2>
+<div class="container">
+<div class="row justify-content-md-center">
+<div class='col-8 mt-4' > 
+<div class="card text-center shadow mb-5 bg-white rounded">
+
+
+
 <br>
 
 Tour: <%= @tour.title %><br>
@@ -19,14 +26,19 @@ Description: <%= @tour.description %></p>
 <%= render 'comments/comment' %> <br>
 
 <% if @tour && @tour.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_tour_path(@tour) %><br>
+  <div><%= link_to 'Edit', edit_tour_path(@tour), class: "btn btn-outline-info btn-md" %><br>
   <%= render partial: "nav", locals: {tour: @tour} %>
   <%= form_tag tour_path(@tour.id), method: "delete" do %>
-    <%= submit_tag "Delete #{@tour.title}" %><br>
+  <%= submit_tag "Delete #{@tour.title}", class: "btn btn-danger btn-small" %><br>
 <% end %>
 <br>
   <% else %> 
   <%= render partial: "nav", locals: {tour: @tour} %>
+  </div>
 <% end %>
 
 
+</div>
+</div>
+</div>
+</div>

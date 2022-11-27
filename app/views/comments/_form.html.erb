@@ -3,5 +3,5 @@
     <%= f.text_area :content %> <br>
     <%= f.hidden_field :user_id, values: current_user.id %>
 
-    <%= f.submit "Add a comment" %>
+    <%= f.submit "Add a comment", class: "btn btn-primary btn-large" %>
 <% end %>

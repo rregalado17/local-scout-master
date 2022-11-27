@@ -5,8 +5,11 @@
   
   <%= f.label :password %>: 
   <%= f.password_field :password, :id => 'password' %>
-  
+  <p>
   <%= f.submit "Sign In" %>
+
   <% end %>
+
+  <%= link_to "Sign Up!", signup_path, class: "btn btn-primary btn-lg" %><p>
   <br>  <%= link_to('Facebook Sign up/Log in!', '/auth/facebook') %><br>
-  <%= link_to "Sign Up", signup_path %><br>  
+

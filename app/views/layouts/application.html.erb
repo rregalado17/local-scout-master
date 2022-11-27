@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
     <head>
       <title>Local Scout</title>
       <%= csrf_meta_tags %>
@@ -11,22 +9,15 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-  <header class="header">
-    <div class="container-head">
-      <div class="level-left">
-        <div class="level-item">
-          Local Scout
-        </div>
-      </div>
-    </div>
-  </header>
 
-    <section class="section">
-      <div class="container">
-      <%= render 'layouts/navigation'  %>
-        <%= yield %>
-      </div>
-    </section>    
+<body>
+  <div class="d-flex flex-column">
+    <%= render 'layouts/navigation'  %> 
+    <div id="page-content">
+      <%= yield %>
+    </div>
+  </div>
+</body>
 
   <footer class="footer">
   
