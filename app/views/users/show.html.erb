@@ -2,13 +2,36 @@
 <p><%= flash[:notice] %></p>
 <% end %>
 
-<h2><%= users_header(@user) %></h2>
-Name:     <%= @user.name %><br>
-Username: <%= @user.username %><br>
-Budget:   $<%= @user.budget %><br>
-Vacation Days Remaining: <%= @user.vacation_time %><br>
- 
-<h2>Here are the trips you have been on so far! </h2>
+<h1 class="text-center mt-4"><%= @user.username %>'s profile!</h1>
+
+<div class="container">
+  <% if logged_in? && @user == current_user %>
+    <h5 class="card-header">Name: <%= @user.name  %></h5>
+    <h5 class="card-title">Username: <%= @user.username %></h5>
+    <h5 class="card-title">Budget: <%= @user.budget %></h5>
+    <h5 class="card-title">PTO Days: <%= @user.vacation_time %></h5>
+      <div class="text-center mt-4">
+        <%= link_to "Edit Your Profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+      </div>
+  <% end %>
+</div>
+
+
+<div> <h2>Here are the trips you have been on so far! </h2>
+  <% @user.trips.each do |trip| %>
+  <div class="row justify-content-md-center">
+    <div class='col-8 mt-4' > 
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header">
+          <%= link_to trip.tour.title, tour_path(trip.tour) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <ul><% @user.trips.each do |t| %>
     <li><%= link_to t.tour.title, tour_path(t.tour) %></li>
   <% end %> </ul>
@@ -18,9 +41,3 @@ Vacation Days Remaining: <%= @user.vacation_time %><br>
 <ul><% @user.tours.each do |tour| %>
   <li><%= link_to tour.title, tour_path(tour) %></li>
 <% end %></ul>
-
-<br><%= link_to 'Update your profile', edit_user_path(@user) %>
-<br><%= link_to "See all tours", tours_path %>
-<br><%= link_to "See all destinations", destinations_path %>
-<br><%= link_to "Log Out", signout_path, method: "delete" %>
- 
