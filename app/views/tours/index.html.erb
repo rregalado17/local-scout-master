@@ -1,23 +1,9 @@
 <h1 class="text-center mt-4" >VIP Tours available: </h2>
-
-
-
-
 <h3><ul><% @tours.vip.each do |t| %>
     <li><%= link_to t.title, tour_path(t) %></li>
 <% end %> </ul></h3>
 <br>
 
 <h3 class="text-center mt-4">Tours available: </h2>
-<ul><% @tours.each do |t| %>
-    <li><%= link_to t.title, tour_path(t) %></li>
-  <% end %> </ul>
-<br>
-  <%= link_to 'New', new_tour_path  %>
-
-
-
   <%= render 'tours/tour' %>
 
-
-  

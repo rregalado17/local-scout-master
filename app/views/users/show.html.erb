@@ -19,8 +19,8 @@
 
 <div> <h2>Here are the trips you have been on so far! </h2>
   <% @user.trips.each do |trip| %>
-  <div class="row justify-content-md-center">
-    <div class='col-8 mt-4' > 
+  <div class="row">
+    <div class='col-2 mt-6' > 
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header">
           <%= link_to trip.tour.title, tour_path(trip.tour) %>
@@ -32,9 +32,7 @@
 </div>
 
 
-  <ul><% @user.trips.each do |t| %>
-    <li><%= link_to t.tour.title, tour_path(t.tour) %></li>
-  <% end %> </ul>
+
   
 <h2><%= @user.username %> has commented on the following tours:</h2>
  
