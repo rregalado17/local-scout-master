@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 # root "application#index"
 
 root "homepages#home"
-resources :users, only: [:new, :create, :edit, :update, :show]
+resources :users, only: [:new, :create, :edit, :update, :show, :index]
 resources :trips, only: [:new, :create]
 resources :destinations, only: [:index, :show]
 resources :tours do 

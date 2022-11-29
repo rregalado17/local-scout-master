@@ -15,9 +15,9 @@
       </div>
   <% end %>
 </div>
+<hr class="my-4">
 
-
-<div> <h2>Here are the trips you have been on so far! </h2>
+<div class= "container p-2"> <h2>Here are the trips you have been on so far! </h2>
   <% @user.trips.each do |trip| %>
   <div class="row">
     <div class='col-2 mt-6' > 
@@ -31,11 +31,16 @@
   </div>
 </div>
 
-
-
-  
-<h2><%= @user.username %> has commented on the following tours:</h2>
- 
-<ul><% @user.tours.each do |tour| %>
-  <li><%= link_to tour.title, tour_path(tour) %></li>
-<% end %></ul>
+<div class= "container p-2"> <h2><%= @user.username %> has commented on the following tours:</h2>
+  <% @user.tours.each do |comment| %>
+  <div class="row">
+    <div class='col-2 mt-6' > 
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header">
+        <%= link_to comment.title, tour_path(comment) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

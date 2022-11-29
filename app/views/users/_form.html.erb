@@ -1,0 +1,52 @@
+<div class='container'>
+
+<%= form_with(model: @user, local: true) do |f| %>
+    <div class="form-group row">
+        <%= f.label :name, class:"col-2 col-form-label" %>
+    <div class='col-10'>        
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+    </div> 
+
+    <div class="form-group row">
+        <%= f.label :username, class:"col-2 col-form-label" %>
+    <div class='col-10'>        
+        <%= f.text_field :username, class: "form-control" %>
+    </div>
+    </div> 
+
+    <div class="form-group row">
+        <%= f.label :email, class:"col-2 col-form-label" %>
+    <div class='col-10'>
+        <%= f.email_field :email, class: "form-control" %>
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <%= f.label :budget, class:"col-2 col-form-label" %>
+    <div class='col-10'>
+        <%= f.number_field :budget, class: "form-control" %>
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <%= f.label :vacation_time, class:"col-2 col-form-label" %>
+    <div class='col-10'>
+        <%= f.number_field :vacation_time, class: "form-control" %>
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <%= f.label :password, class:"col-2 col-form-label" %>
+    <div class='col-10'>
+        <%= f.password_field :password, class: "form-control" %>
+    </div>
+    </div>
+
+    <div class="form-group row">
+        <%= f.submit(@user.new_record? ? "Sign Up" : "Update Profile", class:'btn btn-outline-warning btn-md, pd-2') %>
+    </div>
+    <% end %>
+</div>
+
+

@@ -6,16 +6,6 @@
 
 <h1>Update your profile!</h1><br>
 
-<%= form_for @user do |f| %>
-    Name: <%= @user.name %><br>
-    Username: <%= @user.username %><br>
 
-    <%= f.label :budget %>: $
-    <%= f.number_field :budget %><br>
 
-    <%= f.label :vacation_time %>: 
-    <%= f.number_field :vacation_time %><br>
-
-    <%= f.submit "Update Your Profile" %>
-<% end %>
-
+<%= render 'users/form' %>

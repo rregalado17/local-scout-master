@@ -4,38 +4,57 @@
     <% end %>
 <% end %>
 
-<%= form_for(@tour) do |f| %>
-    <div class="field">
-        <%= f.label :title, 'Tour Title:' %><br>
-        <%= f.text_field :title %>
-    </div>
+<div class='container'>
+<%= form_with(model: @tour, local: true) do |f| %>
 
-    <div class="field">
-        <%= f.label :description, 'Tour Description:' %><br>
-        <%= f.text_area :description %>
-    </div>
-
-    City: <br>
-    <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
-    <datalist id="destination_autocomplete">
-        <% Destination.all.each do |d| %>
-            <option value="<%= (d.city) %>">
-        <% end %>
-    </datalist>
-
-    <div class="field">
-        <%= f.label :price, 'Tour Price:' %><br>
-        <%= f.number_field :price %>
-    </div>
-
-    <div class="field">
-        <%= f.label :title, 'Tour Duration:' %><br>
-        <%= f.number_field :duration %>
+    <div class="form-group row">
+        <%= f.label :title, class:"col-2 col-form-label" %>
+        <div class='col-10'>        
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
     </div>
     
+    <div class="form-group row">
+        <%= f.label :description, class:"col-2 col-form-label" %>
+        <div class='col-10'>        
+            <%= f.text_field :description, class: "form-control" %>
+        </div>
+    </div> 
+
+    <div class="form-group row">
+        <%= f.label :duration, class:"col-2 col-form-label" %>
+        <div class='col-10'>
+            <%= f.number_field :duration, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend col-2">
+                <span class="input-group-text col-form-label">Price: $</span>
+            </div>
+        <%= f.number_field :price, class: "form-control" %>
+        <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+        </div>
+    </div>
+
     <%= f.hidden_field :user_id, values: current_user.id %>
 
-    <div class="actions">
-        <%= f.submit %>
+    <div class="form-group row">
+        <%= f.submit class:'btn btn-outline-light btn-lg' %>
     </div>
-<% end %>
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

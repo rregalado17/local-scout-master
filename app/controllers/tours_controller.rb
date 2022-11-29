@@ -21,8 +21,7 @@ class ToursController < ApplicationController
 
     end
 
-    def edit
-    end
+
 
 #     @user = User.find_by_id(session[:user_id])
 #     @tour = Tour.new(tour_params.merge(user_id: current_user.id))

@@ -1,15 +1,13 @@
-
-<%= form_for @user, url: '/signin' do |f| %>
-    <%= f.label :name %>: 
-    <%= f.collection_select(:name, User.all, :name, :name, :prompt => "Please select your name from this dropdown") %><br>
-  
+<h1 class="text-center mt-4" >Please Sign In: </h2>
+<div class="container mt-4">
+  <%= form_for @user, url: '/signin' do |f| %>
+    <%= f.label :name, class: "col-form-label mt-2" %>: 
+    <%= f.collection_select(:name, User.all, :name, :name, :prompt => "Please select your username") %><br>
   <%= f.label :password %>: 
-  <%= f.password_field :password, :id => 'password' %>
-  <p>
-  <%= f.submit "Sign In" %>
-
+  <%= f.password_field :password, :id => 'password', class:"mt-2" %><br>
+  <%= f.submit "Sign In", class: "mt-4 btn btn-primary btn-sm" %>
   <% end %>
-
-  <%= link_to "Sign Up!", signup_path, class: "btn btn-primary btn-lg" %><p>
+  <%= link_to "Sign Up!", signup_path, class: "mt-4 btn btn-success btn-sm" %><p>
   <br>  <%= link_to('Facebook Sign up/Log in!', '/auth/facebook') %><br>
+</div>
 

@@ -2,43 +2,30 @@
 <p><%= flash[:notice] %></p>
 <% end %><br>
 
-<h2 class="text-center mt-4"><%= @tour.title %></h2>
+<h2 class="text-center mt-4 "><%= @tour.title %></h2>
 <div class="container">
-<div class="row justify-content-md-center">
-<div class='col-8 mt-4' > 
-<div class="card text-center shadow mb-5 bg-white rounded">
-
-
-
-<br>
-
-Tour: <%= @tour.title %><br>
-Destination: <%= @tour.destination.city %><br>
-Price: $<%= @tour.price %><br>
-Duration: <%= @tour.duration %> day(s)<br>
-Description: <%= @tour.description %></p>
-
-
-<%= render 'trips/trip' %>
-<br>
-
-<%= render 'comments/form' %><br>
-<%= render 'comments/comment' %> <br>
-
-<% if @tour && @tour.user_id == current_user.id %>
-  <div><%= link_to 'Edit', edit_tour_path(@tour), class: "btn btn-outline-info btn-md" %><br>
-  <%= render partial: "nav", locals: {tour: @tour} %>
-  <%= form_tag tour_path(@tour.id), method: "delete" do %>
-  <%= submit_tag "Delete #{@tour.title}", class: "btn btn-danger btn-small" %><br>
-<% end %>
-<br>
-  <% else %> 
-  <%= render partial: "nav", locals: {tour: @tour} %>
+  <div class="row justify-content-md-center">
+    <div class='col-8 mt-4 ' > 
+      <div class="card text-center shadow mb-5 bg-white rounded ">
+        <div class="mt-4 mb-4"> 
+          Destination: <%= @tour.destination.city %><br>
+          Price: $<%= @tour.price %><br>
+          Duration: <%= @tour.duration %> day(s)<br>
+          Description: <%= @tour.description %></p>
+        </div>
+      <%= render 'trips/trip' %>
+      <% if @tour && @tour.user_id == current_user.id %>
+        <div ><%= link_to 'Edit', edit_tour_path(@tour), class: "btn btn-outline-info btn-md" %><br>
+        <%= form_tag tour_path(@tour.id), method: "delete" do %>
+        <%= submit_tag "Delete #{@tour.title}", class: "btn btn-danger btn-small" %><br>
+      <% end %>
+      <br>
+        <% else %> 
+        </div>
+      <% end %>
+      </div>
+      <%= render 'comments/comment' %><br>
+    </div>
+    <%= render 'comments/form' %><br>
   </div>
-<% end %>
-
-
-</div>
-</div>
-</div>
 </div>
