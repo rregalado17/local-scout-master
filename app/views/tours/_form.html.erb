@@ -4,7 +4,7 @@
     <% end %>
 <% end %>
 
-<div class='container'>
+<div class='container mt-4'>
 <%= form_with(model: @tour, local: true) do |f| %>
 
     <div class="form-group row">
@@ -39,11 +39,23 @@
         </div>
     </div>
 
-    <%= f.hidden_field :user_id, values: current_user.id %>
-
-    <div class="form-group row">
-        <%= f.submit class:'btn btn-outline-light btn-lg' %>
+    <div class="form-group row"> 
+    <%= f.label :destinations_attributes, "City", class:"col-2 col-form-label" %>
+    <div class='col-10'>
+    <%= f.text_field :destinations_attributes, list: "destination_autocomplete" %>
+    <datalist id="destination_autocomplete">
+        <% Destination.all.each do |d| %>
+            <option value="<%= (d.city) %>">
+        <% end %>
+    </datalist>
     </div>
+
+
+    <div class="form-group mt-4">
+        <%= f.submit class:'btn btn-outline-success btn-lg' %>
+    </div>
+    
+    <%= f.hidden_field :user_id, values: current_user.id %>
     <% end %>
 </div>
 

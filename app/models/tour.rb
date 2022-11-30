@@ -16,6 +16,8 @@ class Tour < ActiveRecord::Base
 
     def destinations_attributes
        self.destination ? self.destination.city : nil  
+       self.destination ? self.destination.country : nil  
+
     end
 
 end

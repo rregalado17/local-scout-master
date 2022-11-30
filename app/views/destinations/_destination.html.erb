@@ -3,11 +3,17 @@
         <div class="row justify-content-md-center">
             <div class='col-4 mt-4' >
                 <div class="card text-center shadow mb-5 bg-white rounded">
-                <p class="card-header"><%= dest.country %></p>
-                <h5 class="card-title mt-2"><%= link_to dest.city, destination_path(dest) %></h5>
-                    <div class="card-body">Destination Trips</div>
+                <p class="card-header"><%= link_to dest.city, destination_path(dest) %></p>
+                <% dest.tours.each do |tour| %>
+                    <div class="card-body"><%= link_to tour.title, tour_path(tour) %>
+                    <% end %>
+                    </div>
                 </div>
             </div>
         </div>
     <% end %>
 </div>
+
+
+
+

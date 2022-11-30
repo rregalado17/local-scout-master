@@ -1,9 +1,22 @@
 <h1 class="text-center mt-4" >VIP Tours available: </h2>
-<h3><ul><% @tours.vip.each do |t| %>
-    <li><%= link_to t.title, tour_path(t) %></li>
-<% end %> </ul></h3>
-<br>
+<div class="row justify-content-sm-center"><% @tours.vip.each do |t| %>
+<div class='col-4 mt-4' > 
+  <div class="card text-center shadow mb-4 bg-white rounded ">
+    <div class="card-header"> 
+      <%= link_to t.destination.city, tour_path(t) %>
+    </div>
 
+    </div>
+
+    </div>
+    <% end %>
+    </div>
+
+
+
+
+<br>
 <h3 class="text-center mt-4">Tours available: </h2>
   <%= render 'tours/tour' %>
 
+  </div>

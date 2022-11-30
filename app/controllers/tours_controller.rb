@@ -50,10 +50,14 @@ class ToursController < ApplicationController
         end
     end
 
-    def destroy
-        @tour.destroy
-        redirect_to stocks_path
+    # def destroy
+#     Tour.find(params[:id]).destroy 
+#     redirect_to tours_url
+# end
 
+    def destroy
+        Tour.find(params[:id]).destroy
+        redirect_to tours_url
     end
 
     private 
