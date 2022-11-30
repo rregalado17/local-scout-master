@@ -1,7 +1,7 @@
 class HomepagesController < ApplicationController
 
     def home
-        # redirect_to stocks_path if logged_in?
+        redirect_to tours_path if logged_in?
     end
 
     def about
