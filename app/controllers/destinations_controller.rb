@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, except: [:show, :index]
 
     def index
         @destinations = Destination.all
@@ -26,5 +26,4 @@ class DestinationsController < ApplicationController
     def destination_params
         params.require(:destination).permit(:country, :city)
     end
-
 end

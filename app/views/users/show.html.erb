@@ -17,6 +17,7 @@
 </div>
 <hr class="my-4">
 
+<% if @user.trips.any?  %>
 <div class= "container p-2"> <h2>Here are the trips you have been on so far! </h2>
   <% @user.trips.each do |trip| %>
   <div class="row">
@@ -28,9 +29,12 @@
         <% end %>
       </div>
     </div>
+    <% else %>
   </div>
 </div>
+<% end %>
 
+<% if @user.comments.any?  %>
 <div class= "container p-2"> <h2><%= @user.username %> has commented on the following tours:</h2>
   <% @user.tours.each do |comment| %>
   <div class="row">
@@ -42,5 +46,7 @@
         <% end %>
       </div>
     </div>
+    <% else %>
   </div>
+  <% end %>
 </div>

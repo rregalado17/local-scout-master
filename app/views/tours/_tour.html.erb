@@ -7,9 +7,12 @@
                         <h5 class="card-title"><%= link_to tour.title, tour_path(tour) %></h5>
                         <p class="card-text"><%= truncate(tour.description, length: 100 ) %></p>
                         <%= link_to "View", tour_path(tour), class: "btn btn-outline-success" %>
+                        <% if logged_in? && current_user == tour.user %>
                         <%= link_to "Edit", edit_tour_path(tour), class: "btn btn-outline-info" %>
                         <%= link_to "Delete", tour_path(tour), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+                        <% else %>
                     </div>
+                    <% end %>
                 </div>
             </div>
         </div>

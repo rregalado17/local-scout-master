@@ -17,11 +17,10 @@ class CommentsController < ApplicationController
     end
 
     private 
-
     def require_login
         return head(:forbidden) unless session.include? :user_id
     end
-
+    
     def comment_params
         params.require(:comment).permit(:content, :user_id, :tour_id)
     end
