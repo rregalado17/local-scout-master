@@ -18,20 +18,19 @@
 <hr class="my-4">
 
 <% if @user.trips.any?  %>
-<div class= "container p-2"> <h2>Here are the trips you have been on so far! </h2>
-  <% @user.trips.each do |trip| %>
-  <div class="row">
-    <div class='col-2 mt-6' > 
-      <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-header">
-          <%= link_to trip.tour.title, tour_path(trip.tour) %>
+  <div class= "container p-2"> <h2>Here are the trips you have been on so far! </h2>
+    <% @user.trips.each do |trip| %>
+    <div class="row">
+      <div class='col-2 mt-6' > 
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header">
+            <%= link_to trip.tour.title, tour_path(trip.tour) %>
+          </div>
         </div>
-        <% end %>
       </div>
     </div>
-    <% else %>
+    <% end %>
   </div>
-</div>
 <% end %>
 
 <% if @user.comments.any?  %>
