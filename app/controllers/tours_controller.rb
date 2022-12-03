@@ -9,8 +9,7 @@ class ToursController < ApplicationController
     end
 
     def index
-        @tours = Tour.paginate(page: params[:page], per_page: 3)
-        # @tours = Tour.all
+        @tours = Tour.paginate(page: params[:page], per_page: 5)
     end
 
     def new

@@ -22,7 +22,7 @@
       <% if @tour && @tour.user_id == current_user.id %>
         <div ><%= link_to 'Edit', edit_tour_path(@tour), class: "btn btn-outline-warning btn-md mb-2" %><br>
         <%= form_tag tour_path(@tour.id), method: "delete" do %>
-        <%= submit_tag "Delete #{@tour.title}", class: "btn btn-danger btn-small" %><br>
+        <%= submit_tag "Delete Tour", class: "btn btn-danger btn-small" %><br>
       <% end %>
       <br>
         <% else %> 
