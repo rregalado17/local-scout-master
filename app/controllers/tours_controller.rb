@@ -9,7 +9,7 @@ class ToursController < ApplicationController
     end
 
     def index
-        @tours = Tour.paginate(page: params[:page], per_page: 5)
+        @tours = Tour.paginate(page: params[:page], per_page: 6)
     end
 
     def new
@@ -26,7 +26,7 @@ class ToursController < ApplicationController
             render "new"
         end
     end
-
+ 
     def update
         if @tour.update(tour_params)
             flash[:notice] = "Tour was updated successfully"

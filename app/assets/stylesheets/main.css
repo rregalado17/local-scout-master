@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2f74c0;
+  font-family: "Poppins";
+  margin-top: 10px;
+  color: #2f74c0;
+}
+/*# sourceMappingURL=main.css.map */
